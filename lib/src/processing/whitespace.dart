@@ -227,7 +227,8 @@ class WhitespaceProcessing {
   static String _removeUnnecessaryWhitespace(String text) {
     return text
         .replaceAll(RegExp(r" *(?=\n)"), "")
-        .replaceAll(RegExp(r"(?<=\n) *"), "")
+        // fix this issue, see https://github.com/Sub6Resources/flutter_html/issues/1314
+        // .replaceAll(RegExp(r"(?<=\n) *"), "") 
         .replaceAll("\n", " ")
         .replaceAll("\t", " ")
         .replaceAll(RegExp(r" {2,}"), " ");
